@@ -18,7 +18,7 @@ const Nav = () => {
         {navlinks}
       </ul>
     </div>
-    <Link><h1 className="btn btn-ghost text-4xl">Email Auth</h1></Link>
+    <Link to="/"><h1 className="btn btn-ghost text-4xl">Email Auth</h1></Link>
     {/* <a className="btn btn-ghost text-xl">Email Password</a> */}
   </div>
   <div className="navbar-center hidden lg:flex">
