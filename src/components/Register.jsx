@@ -1,20 +1,41 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import { useState } from "react";
 
 const Register = () => {
+
+    const[registerError, setRegisterError] = useState('');
+    const[success, setSuccess] = useState('');
 
     const handleRegister = e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email, password);
+
+        // reset error and success
+        setRegisterError('');
+        setSuccess('');
+
+        // Remove success toast after 3 seconds
+        setTimeout(() => {
+            setSuccess('');
+        }, 3000);
+        // Remove error toast after 3 seconds
+        setTimeout(() => {
+            setRegisterError('');
+        }, 3000);
+
+
         //create user
         createUserWithEmailAndPassword(auth, email, password)
         .then(result => {
             console.log(result.user);
+            setSuccess('User Created Successfully');
         })
         .catch(error => {
             console.error(error);
+            setRegisterError(error.message);
         })
     }
     return (
@@ -46,6 +67,21 @@ const Register = () => {
           <button className="btn btn-primary">Register</button>
         </div>
       </form>
+      {
+        registerError && <div className="toast toast-center toast-middle">
+        <div className="alert alert-info">
+          <span>{registerError}</span>
+        </div>
+      </div>
+      }
+      
+      {
+        success && <div className="toast toast-center toast-middle">
+        <div className="alert alert-info">
+          <span>{success}</span>
+        </div>
+      </div>
+      }
     </div>
   </div>
 </div>
