@@ -22,9 +22,16 @@ const Register = () => {
             setRegisterError('Password should be at least 6 characters')
             setTimeout(() => {
                 setRegisterError('');
-            }, 3000);
+            }, 4000);
             return;
         }
+        // else if(!/A-Z/.test(password)){
+        //     setRegisterError('Password should have at least one uppercase character')
+        //     setTimeout(() => {
+        //         setRegisterError('');
+        //     }, 4000);
+        //     return;
+        // }
 
         // Remove success toast after 3 seconds
         setTimeout(() => {
@@ -77,7 +84,7 @@ const Register = () => {
         </div>
       </form>
       {
-        registerError && <div className="toast toast-center toast-middle">
+        registerError && <div className="toast toast-center toast-middle bg-red-500 rounded-3xl">
         <div className="alert alert-info">
           <span>{registerError}</span>
         </div>
@@ -85,7 +92,7 @@ const Register = () => {
       }
       
       {
-        success && <div className="toast toast-center toast-middle">
+        success && <div className="toast toast-center toast-middle bg-blue-500 rounded-3xl">
         <div className="alert alert-info">
           <span>{success}</span>
         </div>
