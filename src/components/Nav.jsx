@@ -28,7 +28,7 @@ const Nav = () => {
   </div>
   <div className="navbar-end">
     {/* <a className="btn">Button</a> */}
-    <h2 className="text-4xl text-red-600"><BsEmojiWink /></h2>
+    <h2 className="text-4xl text-red-600 logo"><BsEmojiWink /></h2>
   </div>
 </div>
     );
