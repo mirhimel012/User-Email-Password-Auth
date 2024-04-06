@@ -13,7 +13,8 @@ const Register = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password);
+        const accepted = e.target.terms.checked;
+        console.log(email, password, accepted);
 
         // reset error and success
         setRegisterError('');
@@ -27,12 +28,21 @@ const Register = () => {
             }, 4000);
             return;
         }
+        // Password should have at least one uppercase character
         else if(!/[A-Z]/.test(password)){
             setRegisterError('Password should have at least one uppercase character')
             setTimeout(() => {
                 setRegisterError('');
             }, 4000);
             return;
+        }
+        // Terms and condition
+        else if(!accepted){
+          setRegisterError('Plese accept our terms and condition')
+            setTimeout(() => {
+                setRegisterError('');
+            }, 4000);
+          return;
         }
 
         // Remove success toast after 3 seconds
@@ -85,6 +95,10 @@ const Register = () => {
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
+        </div>
+        <div>
+          <input className="mr-2" type="checkbox" name="terms" id="terms" />
+          <label htmlFor="terms">Accept our <a className="text-green-700" href="">Terms and Conditions</a></label>
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary hover:bg-blue-700 hover:text-xl">Register</button>
