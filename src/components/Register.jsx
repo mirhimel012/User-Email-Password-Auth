@@ -93,12 +93,12 @@ const Register = () => {
               showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
             }
             </span>
-          <label className="label">
+          {/* <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-          </label>
+          </label> */}
         </div>
         <div>
-          <input className="mr-2" type="checkbox" name="terms" id="terms" />
+          <input className="mr-2 mt-3" type="checkbox" name="terms" id="terms" />
           <label htmlFor="terms">Accept our <a className="text-green-700" href="">Terms and Conditions</a></label>
         </div>
         <div className="form-control mt-6">
