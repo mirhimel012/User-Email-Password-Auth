@@ -104,6 +104,8 @@ const Register = () => {
           <button className="btn btn-primary hover:bg-blue-700 hover:text-xl">Register</button>
         </div>
       </form>
+
+      {/* Success and Error message */}
       {
         registerError && <div className="toast toast-center toast-middle bg-red-500 rounded-3xl">
         <div className="alert alert-info">
