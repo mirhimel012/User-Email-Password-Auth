@@ -33,7 +33,12 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then(result => {
             console.log(result.user);
-            setSuccess('Login Successfully');
+            
+            if(result.user.emailVerified){
+              setSuccess('Login Successfully');
+            }else{
+              alert("Please Varify your email");
+            }
         })
         .catch(error => {
             console.error(error);
