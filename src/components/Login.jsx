@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const[loginError, setLoginError] = useState('');
@@ -69,6 +70,9 @@ const Login = () => {
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
+        </div>
+        <div className="text-center mt-2">
+          <p>New to this website? Please <Link className="text-lime-600 font-bold" to="/register">Register</Link></p>
         </div>
       </form>
 

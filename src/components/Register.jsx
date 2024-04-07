@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Register = () => {
 
@@ -102,6 +103,9 @@ const Register = () => {
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary hover:bg-blue-700 hover:text-xl">Register</button>
+        </div>
+        <div className="text-center mt-2">
+          <p>Already have an account? Please <Link className="text-lime-600 font-bold" to="/login">Login</Link></p>
         </div>
       </form>
 
